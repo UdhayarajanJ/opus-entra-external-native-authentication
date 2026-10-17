@@ -30,7 +30,7 @@ This repository demonstrates how to build a modern frontend authentication flow 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/opus-entra-external-native-authentication.git
+https://github.com/UdhayarajanJ/opus-entra-external-native-authentication.git
 cd opus-entra-external-native-authentication
 ```
 
