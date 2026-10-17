@@ -1,59 +1,66 @@
-# OpusEntraExternalNativeAuthentication
+# Opus Entra External Native Authentication (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.3.
+An enterprise-ready **Angular** application implementing native user authentication via **Azure Entra External ID**, seamlessly deployed and hosted on **Azure Static Web Apps**.
 
-## Development server
+## Overview
 
-To start a local development server, run:
+This repository demonstrates how to build a modern frontend authentication flow using Azure Entra External ID's native authentication capabilities. Instead of redirecting users to hosted login pages, this application handles sign-in, sign-up, and token management directly within the Angular UI, offering a smoother user experience.
+
+##  Key Features
+
+* **Native Authentication Flow:** Custom Angular login, sign-up, and password reset flows powered by Azure Entra External ID.
+* **Secure Token Handling:** Automatic acquisition, storage, and attachment of OAuth2/OIDC tokens for authenticated API requests.
+* **Protected Routes:** Angular Route Guards securing private views for authenticated users only.
+* **Cloud Native Deployment:** Continuous deployment pipeline configured for **Azure Static Web Apps**.
+
+## Tech Stack
+
+* **Frontend Framework:** Angular (TypeScript)
+* **Authentication:** Microsoft Authentication Library (MSAL) / Azure Entra External ID
+* **Hosting & CI/CD:** Azure Static Web Apps (SWA)
+
+## Getting Started & Installation
+
+### Prerequisites
+
+* Node.js (v18+ recommended)
+* Angular CLI installed globally (`npm install -g @angular/cli`)
+* An active Azure subscription with an **Azure Entra External ID** tenant configured.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/opus-entra-external-native-authentication.git
+cd opus-entra-external-native-authentication
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Run the Development Server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Deployment (Azure Static Web Apps)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+This repository includes configuration for **Azure Static Web Apps**. To deploy your Angular application:
 
-```bash
-ng generate component component-name
-```
+1. Push your code to your GitHub repository.
+2. In the [Azure Portal](https://portal.azure.com/), create a new **Static Web App resource**.
+3. Link your GitHub account and select this repository and branch (`main`).
+4. Set the build presets:
+   * **App location:** `/`
+   * **Api location:** *(leave blank if no backend API)*
+   * **Output location:** `dist/your-app-name` (or `dist`)
+5. Azure will automatically generate a GitHub Actions workflow file in `.github/workflows/`, handling future builds and deployments on every push.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Author
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Built with TypeScript and Angular for secure cloud-native authentication architectures.
