@@ -20,6 +20,11 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": {
+              "base": "dist/opus-entra-external-native-authentication",
+              "browser": "",
+              "server": ""
+            },
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -34,6 +39,77 @@
             ]
           },
           "configurations": {
+            "local": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
+            },
+            "development": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
+            },
+            "test": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            },
+            "uat": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.uat.ts"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {
@@ -47,27 +123,52 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.production.ts"
+                }
+              ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "local"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "opus-entra-external-native-authentication:build:production"
+            "local": {
+              "buildTarget": "opus-entra-external-native-authentication:build:local",
+              "ssl": true,
+              "sslCert": "ssl/localhost.crt",
+              "sslKey": "ssl/localhost.key"
             },
             "development": {
-              "buildTarget": "opus-entra-external-native-authentication:build:development"
+              "buildTarget": "opus-entra-external-native-authentication:build:development",
+              "ssl": true,
+              "sslCert": "ssl/localhost.crt",
+              "sslKey": "ssl/localhost.key"
+            },
+            "test": {
+              "buildTarget": "opus-entra-external-native-authentication:build:test",
+              "ssl": true,
+              "sslCert": "ssl/localhost.crt",
+              "sslKey": "ssl/localhost.key"
+            },
+            "uat": {
+              "buildTarget": "opus-entra-external-native-authentication:build:uat",
+              "ssl": true,
+              "sslCert": "ssl/localhost.crt",
+              "sslKey": "ssl/localhost.key"
+            },
+            "production": {
+              "buildTarget": "opus-entra-external-native-authentication:build:production",
+              "ssl": true,
+              "sslCert": "ssl/localhost.crt",
+              "sslKey": "ssl/localhost.key"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "local"
         },
         "test": {
           "builder": "@angular/build:unit-test"
