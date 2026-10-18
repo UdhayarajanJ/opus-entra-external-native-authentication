@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { SharedConstants } from './shared/shared.constants';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [SharedConstants.ANGULAR_COMPONENTS, SharedConstants.APP_COMPONENTS],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
