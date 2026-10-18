@@ -1,4 +1,4 @@
-import { RouterOutlet } from "@angular/router";
+import { RouterLink, RouterOutlet } from "@angular/router";
 import { AccessDenied } from "./components/access-denied/access-denied";
 import { Footer } from "./components/footer/footer";
 import { Header } from "./components/header/header";
@@ -9,19 +9,21 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 export class SharedConstants {
+
     public static readonly ANGULAR_COMPONENTS = [
         RouterOutlet,
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
-    ]
+        ReactiveFormsModule,
+        RouterLink
+    ];
 
-    public static readonly COMPONENTS = [
+    public static readonly APP_COMPONENTS = [
         Header,
         Footer,
         Login,
         Layout,
         Notfound,
         AccessDenied
-    ]
+    ];
 }
