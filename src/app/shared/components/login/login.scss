@@ -1,0 +1,285 @@
+.login-container {
+    width: 100%;
+    min-width: 200px;
+}
+
+.login-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 48px 40px 36px;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card:hover {
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.12),
+        0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-header h2 {
+    color: #212121;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+    letter-spacing: 0.15px;
+}
+
+/* Material Form Groups */
+.form-group {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-wrapper input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    border-radius: 0;
+    padding: 16px 0 8px;
+    color: #212121;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    width: 100%;
+    outline: none;
+    position: relative;
+    z-index: 3;
+}
+
+.input-wrapper input:focus {
+    border-bottom-color: #363199;
+}
+
+.input-wrapper input:focus + label,
+.input-wrapper input:valid + label {
+    transform: translateY(-24px) scale(0.75);
+    color: #363199;
+    font-weight: 500;
+}
+
+.input-wrapper label {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    color: #757575;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    transform-origin: left top;
+    z-index: 4;
+}
+
+.input-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #363199;
+    transition: width 0.2s ease;
+    z-index: 5;
+}
+
+.input-wrapper input:focus ~ .input-line {
+    width: 100%;
+}
+
+
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* Material Button */
+.material-btn {
+    width: 100%;
+    background: #363199;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.25px;
+    min-height: 48px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.material-btn:hover {
+    background: #FFF2A0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
+}
+
+.material-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+}
+
+.btn-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.loader-circle {
+    width: 20px;
+    height: 20px;
+    animation: rotate 2s linear infinite;
+}
+
+.loader-path {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+    0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+    50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+    100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+}
+
+.material-btn.loading .btn-text {
+    opacity: 0;
+}
+
+.material-btn.loading .btn-loader {
+    opacity: 1;
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 14px 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e0e0e0;
+    transform: translateY(-50%);
+}
+
+.divider span {
+    background: #ffffff;
+    color: #757575;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+/* Social Login */
+.social-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.social-btn {
+    
+    background: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #3c4043;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    min-height: 48px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.social-btn:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.social-ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon svg {
+    width: 100%;
+    height: 100%;
+}
