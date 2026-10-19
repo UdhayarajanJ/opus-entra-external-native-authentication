@@ -1,6 +1,9 @@
-<!-- <div class="app-wrapper">
-  <app-login></app-login>
-</div> -->
+@if (authenticated()) {
 <app-layout>
   <router-outlet></router-outlet>
 </app-layout>
+} @else {
+<div class="app-wrapper">
+  <app-login></app-login>
+</div>
+}

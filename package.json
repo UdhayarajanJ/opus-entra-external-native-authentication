@@ -4,18 +4,16 @@
   "scripts": {
     "ng": "ng",
     "test": "ng test",
-
-    "local-env": "ng serve --configuration=local -o",
+    "server:local": "node proxy/server.js useenv local",
+    "local-env": "concurrently \"npm run server:local\" \"ng serve --configuration=local -o\"",
     "development-env": "ng serve --configuration=development -o",
     "test-env": "ng serve --configuration=test -o",
     "uat-env": "ng serve --configuration=uat -o",
     "production-env": "ng serve --configuration=production -o",
-
     "build-development-env": "ng build --configuration=development",
     "build-test-env": "ng build --configuration=test",
     "build-uat-env": "ng build --configuration=uat",
     "build-production-env": "ng build --configuration=production"
-    
   },
   "private": true,
   "packageManager": "npm@11.20.0",
@@ -26,6 +24,7 @@
     "@angular/forms": "^22.2.0",
     "@angular/platform-browser": "^22.2.0",
     "@angular/router": "^22.2.0",
+    "@azure/msal-browser": "^5.25.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -33,6 +32,8 @@
     "@angular/build": "^22.2.3",
     "@angular/cli": "^22.2.3",
     "@angular/compiler-cli": "^22.2.0",
+    "concurrently": "^10.0.6",
+    "dotenv": "^18.0.8",
     "jsdom": "^30.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",
