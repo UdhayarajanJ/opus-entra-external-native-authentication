@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   imports: [],
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss',
   templateUrl: './footer.html',
 })
-export class Footer {}
+export class Footer {
+  readonly currentYear = new Date().getFullYear();
+  readonly env_name = environment.name;
+}

@@ -1,0 +1,45 @@
+<main class="access-denied-container">
+  <section class="access-denied-card">
+    <div class="access-icon" aria-hidden="true">
+      <svg viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="40" fill="#fceeee"/>
+        <rect x="31" y="43" width="38" height="29" rx="6"
+          fill="#fff" stroke="#c94c4c" stroke-width="2.5"/>
+        <path d="M39 43V34a11 11 0 0 1 22 0v9"
+          stroke="#c94c4c" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="50" cy="55" r="3" fill="#c94c4c"/>
+        <path d="M50 58v5" stroke="#c94c4c" stroke-width="2.5"
+          stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <p class="error-label">ERROR 403</p>
+    <h1>Access denied</h1>
+    <p class="access-description">
+      You don't have permission to access this page.
+      Contact your administrator if you believe you should have access.
+    </p>
+
+    <div class="access-notice">
+      <span class="notice-icon" aria-hidden="true">!</span>
+      <p>Your account may need additional permissions to continue.</p>
+    </div>
+
+    <a routerLink="/" class="home-button">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 10.5L12 3l9 7.5V21H3V10.5Z"
+          stroke="currentColor" stroke-width="1.8"
+          stroke-linejoin="round"/>
+        <path d="M9 21v-7h6v7"
+          stroke="currentColor" stroke-width="1.8"
+          stroke-linejoin="round"/>
+      </svg>
+      Back to home
+    </a>
+
+    <div class="support-note">
+      <span class="support-dot"></span>
+      <span>Opus workspace security</span>
+    </div>
+  </section>
+</main>
