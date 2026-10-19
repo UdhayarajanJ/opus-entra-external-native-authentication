@@ -10,8 +10,8 @@ export class MsalNativeAuthConfig {
         auth: {
             clientId: environment.clientId,
             authority: environment.authority,
-            redirectUri: "/",
-            postLogoutRedirectUri: "/",
+            redirectUri: window.location.origin + "/",
+            postLogoutRedirectUri: window.location.origin + "/",
         },
         cache: {
             cacheLocation: "sessionStorage",

@@ -8,6 +8,7 @@ export class Auth {
     private authClientPromise: Promise<ICustomAuthPublicClientApplication>;
     private authClient: ICustomAuthPublicClientApplication | null = null;
     authenticated = signal(false);
+    
     constructor() {
         this.authClientPromise = this.init();
     }

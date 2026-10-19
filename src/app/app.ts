@@ -9,8 +9,7 @@ import { Auth } from './core/services/auth';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('opus-entra-external-native-authentication');
+  protected readonly title = signal('login');
   private authService = inject(Auth);
   authenticated = this.authService.authenticated;
-
 }
