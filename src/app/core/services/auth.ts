@@ -5,16 +5,12 @@ import { AccountInfo } from '@azure/msal-browser';
 
 @Service()
 export class Auth {
-    private authClientPromise: Promise<ICustomAuthPublicClientApplication>;
+    private authClientPromise!: Promise<ICustomAuthPublicClientApplication>;
     private authClient: ICustomAuthPublicClientApplication | null = null;
     authenticated = signal(false);
-    
-    constructor() {
-        this.authClientPromise = this.init();
-    }
 
-    private async init(): Promise<ICustomAuthPublicClientApplication> {
-        this.authClient = await CustomAuthPublicClientApplication.create(MsalNativeAuthConfig.MSAL_AUTH);
+    private async init(provider: string,): Promise<ICustomAuthPublicClientApplication> {
+        this.authClient = await CustomAuthPublicClientApplication.create(MsalNativeAuthConfig.getConfig(provider));
         try {
             await this.authClient.handleRedirectPromise?.();
         } catch (error) {
@@ -40,7 +36,8 @@ export class Auth {
         return null;
     }
 
-    getClient(): Promise<ICustomAuthPublicClientApplication> {
+    getClient(provider: string): Promise<ICustomAuthPublicClientApplication> {
+        this.authClientPromise = this.init(provider);
         return this.authClientPromise;
     }
 
@@ -51,7 +48,7 @@ export class Auth {
             this.authenticated.set(false);
             await this.authClient.logoutRedirect({
                 account: account || undefined,
-                postLogoutRedirectUri: MsalNativeAuthConfig.MSAL_AUTH.auth.postLogoutRedirectUri || '/'
+                postLogoutRedirectUri: MsalNativeAuthConfig.getConfig().auth.postLogoutRedirectUri
             });
         } catch (error) {
             console.error("Logout failed:", error);
